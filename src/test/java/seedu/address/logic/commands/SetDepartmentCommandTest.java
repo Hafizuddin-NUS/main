@@ -53,7 +53,7 @@ public class SetDepartmentCommandTest {
             new SetDepartmentCommand(null, new Department("Junior Management"));
         });
     }
-
+    //test test case
     @Test
     public void execute_notLoggedIn_throwsCommandException() {
         Assertions.assertThrows(CommandException.class, () -> {
