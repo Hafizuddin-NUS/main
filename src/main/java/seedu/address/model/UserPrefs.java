@@ -43,6 +43,10 @@ public class UserPrefs {
         this.addressBookFilePath = addressBookFilePath;
     }
 
+    public void setLeaveListFilePath(Path leaveListFilePath) {
+        this.leaveListFilePath = leaveListFilePath;
+    }
+
     @Override
     public boolean equals(Object other) {
         if (other == this) {

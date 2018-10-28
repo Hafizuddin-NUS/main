@@ -1,12 +1,11 @@
 package seedu.address.testutil;
 
-import static seedu.address.logic.parser.CliSyntax.PREFIX_APPROVAL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NRIC;
 
 import seedu.address.logic.commands.AddLeaveCommand;
 import seedu.address.model.leave.Leave;
 
+//@@author Hafizuddin-NUS
 /**
  * A utility class for Leave.
  */
@@ -23,12 +22,7 @@ public class LeaveUtil {
      */
     public static String getLeaveDetails(Leave leave) {
         StringBuilder sb = new StringBuilder();
-        sb.append(PREFIX_NRIC + leave.getEmployeeId().nric + " ");
-        sb.append(PREFIX_DATE + leave.getDate().date + " ");
-        sb.append(PREFIX_APPROVAL + leave.getApproval().status + " ");
+        sb.append(PREFIX_DATE + leave.getDate().date);
         return sb.toString();
     }
-
 }
-
-

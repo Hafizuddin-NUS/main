@@ -130,6 +130,17 @@ public class SessionManager extends ComponentManager implements Session {
         return allPersonsHashMap.get(loggedInNric);
     }
 
+    /**
+     * Returns the {@code Priority} object whose NRIC matches the one that's currently logged in.
+     */
+    @Override
+    public PriorityLevel getLoggedInPriorityLevel() throws CommandException {
+        if (!isLoggedIn()) {
+            throw new CommandException(NOT_LOGGED_IN);
+        }
+        return loggedInPriorityLevel;
+    }
+
     //================================== PRIORITY LEVEL CONCERNS ==================================================
     /**
      * Returns true if current session has at least the required priority level for the operation.

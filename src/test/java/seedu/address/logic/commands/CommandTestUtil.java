@@ -30,6 +30,7 @@ import seedu.address.model.leave.NricContainsKeywordsPredicate;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
 import seedu.address.model.prioritylevel.PriorityLevelEnum;
+import seedu.address.testutil.EditLeaveDescriptorBuilder;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 
 /**
@@ -51,6 +52,11 @@ public class CommandTestUtil {
     public static final String VALID_NRIC_REQUEST3 = "S1234591A";
     public static final String VALID_DEPARTMENT_AMY = "Top Management";
     public static final String VALID_DEPARTMENT_BOB = "Top Management";
+    public static final String VALID_DATE_REQUEST1 = "01/11/2018";
+    public static final String VALID_DATE_REQUEST2 = "01/12/2018";
+    public static final String VALID_APPROVAL_REQUEST3 = "PENDING";
+    public static final String VALID_APPROVAL_REQUEST1 = "APPROVED";
+    public static final String VALID_APPROVAL_REQUEST2 = "REJECTED";
     public static final int VALID_PRIORITYLEVEL_AMY = PriorityLevelEnum.MANAGER.getPriorityLevelCode();
     public static final int VALID_PRIORITYLEVEL_BOB = PriorityLevelEnum.MANAGER.getPriorityLevelCode();
 
@@ -109,6 +115,8 @@ public class CommandTestUtil {
 
     public static final EditCommand.EditPersonDescriptor DESC_AMY;
     public static final EditCommand.EditPersonDescriptor DESC_BOB;
+    public static final EditLeaveCommand.EditLeaveDescriptor DESC_REQUEST1;
+    public static final EditLeaveCommand.EditLeaveDescriptor DESC_REQUEST2;
 
     static {
         DESC_AMY = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY)
@@ -117,6 +125,10 @@ public class CommandTestUtil {
         DESC_BOB = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withDepartment(VALID_DEPARTMENT_BOB)
                 .withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+        DESC_REQUEST1 = new EditLeaveDescriptorBuilder().withNric(VALID_NRIC_AMY).withDate(VALID_DATE_REQUEST1)
+                .withApproval(VALID_APPROVAL_REQUEST1).build();
+        DESC_REQUEST2 = new EditLeaveDescriptorBuilder().withNric(VALID_NRIC_BOB).withDate(VALID_DATE_REQUEST2)
+                .withApproval(VALID_APPROVAL_REQUEST2).build();
     }
 
     /**

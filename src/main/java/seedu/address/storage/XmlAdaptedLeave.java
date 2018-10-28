@@ -8,8 +8,10 @@ import seedu.address.model.leave.Approval;
 import seedu.address.model.leave.Date;
 import seedu.address.model.leave.EmployeeId;
 import seedu.address.model.leave.Leave;
-import seedu.address.model.person.Nric;
+import seedu.address.model.prioritylevel.PriorityLevel;
+import seedu.address.model.prioritylevel.PriorityLevelEnum;
 
+//@@author Hafizuddin-NUS
 /**
  * JAXB-friendly version of the Leave.
  */
@@ -23,6 +25,8 @@ public class XmlAdaptedLeave {
     private String date;
     @XmlElement(required = true)
     private String status;
+    @XmlElement(required = true)
+    private int priority;
 
     /**
      * Constructs an XmlAdaptedLeave.
@@ -33,10 +37,11 @@ public class XmlAdaptedLeave {
     /**
      * Constructs an {@code XmlAdaptedLeave} with the given person details.
      */
-    public XmlAdaptedLeave(String nric, String date, String status) {
+    public XmlAdaptedLeave(String nric, String date, String status, int priority) {
         this.nric = nric;
         this.date = date;
         this.status = status;
+        this.priority = priority;
     }
 
     /**
@@ -48,6 +53,7 @@ public class XmlAdaptedLeave {
         nric = source.getEmployeeId().nric;
         date = source.getDate().date;
         status = source.getApproval().status;
+        priority = source.getPriorityLevel().priorityLevelCode;
     }
 
     /**
@@ -68,7 +74,7 @@ public class XmlAdaptedLeave {
         if (!EmployeeId.isValidEmployeeId(nric)) {
             throw new IllegalValueException(EmployeeId.MESSAGE_NRIC_CONSTRAINTS);
         }
-        final Nric modelEmployeeId = new Nric(nric);
+        final EmployeeId modelEmployeeId = new EmployeeId(nric);
 
         if (date == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Date.class.getSimpleName()));
@@ -85,10 +91,16 @@ public class XmlAdaptedLeave {
         if (!Approval.isValidApproval(status)) {
             throw new IllegalValueException(Approval.MESSAGE_APPROVAL_CONSTRAINTS);
         }
+
+        if (!PriorityLevelEnum.isValidPriorityLevel(priority)) {
+            throw new IllegalValueException(PriorityLevel.MESSAGE_PRIORITY_CONSTRAINTS);
+        }
+
         final Approval modelApproval = new Approval(status);
 
-        // final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Leave(modelEmployeeId, modelDate, modelApproval);
+        final PriorityLevel modePriority = new PriorityLevel(priority);
+
+        return new Leave(modelEmployeeId, modelDate, modelApproval, modePriority);
     }
 
 
@@ -105,7 +117,8 @@ public class XmlAdaptedLeave {
         XmlAdaptedLeave otherLeave = (XmlAdaptedLeave) other;
         return Objects.equals(nric, otherLeave.nric)
                 && Objects.equals(date, otherLeave.date)
-                && Objects.equals(status, otherLeave.status);
+                && Objects.equals(status, otherLeave.status)
+                && Objects.equals(priority, otherLeave.priority);
     }
 
 

@@ -59,7 +59,7 @@ public interface Model {
      * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
      */
     void updatePerson(Person target, Person editedPerson);
-    //void updateLeave(Leave target, Leave editedLeave);
+    void updateLeave(Leave target, Leave editedLeave);
 
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();
@@ -78,7 +78,6 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredLeaveList(Predicate<Leave> predicate);
-
 
     /**
      * Returns true if the model has previous address book states to restore.

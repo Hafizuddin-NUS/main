@@ -4,8 +4,9 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Objects;
 
-import seedu.address.model.person.Nric;
+import seedu.address.model.prioritylevel.PriorityLevel;
 
+//@@author Hafizuddin-NUS
 /**
  * Represents a Leave in the leave list.
  * Guarantees: details are present and not null, field values are validated, immutable.
@@ -13,24 +14,26 @@ import seedu.address.model.person.Nric;
 public class Leave {
 
     private final Date date;
-    private final Nric employeeId;
+    private final EmployeeId employeeId;
     private final Approval approval;
+    private final PriorityLevel priorityLevel;
 
     /**
      * Every field must be present and not null.
      */
-    public Leave(Nric employeeId, Date date, Approval approval) {
+    public Leave(EmployeeId employeeId, Date date, Approval approval, PriorityLevel priorityLevel) {
         requireAllNonNull(employeeId, date, approval);
         this.employeeId = employeeId;
         this.date = date;
         this.approval = approval;
+        this.priorityLevel = priorityLevel;
     }
 
     public Date getDate() {
         return date;
     }
 
-    public Nric getEmployeeId() {
+    public EmployeeId getEmployeeId() {
         return employeeId;
     }
 
@@ -38,6 +41,9 @@ public class Leave {
         return approval;
     }
 
+    public PriorityLevel getPriorityLevel() {
+        return priorityLevel;
+    }
 
     @Override
     public int hashCode() {

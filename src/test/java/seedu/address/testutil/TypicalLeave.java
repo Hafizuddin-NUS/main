@@ -7,21 +7,22 @@ import java.util.List;
 import seedu.address.model.LeaveList;
 import seedu.address.model.leave.Leave;
 
+//@@author Hafizuddin-NUS
 /**
  * A utility class containing a list of {@code Leave} objects to be used in tests.
  */
 public class TypicalLeave {
 
     public static final Leave REQUEST_1 = new LeaveBuilder().withNric("S1234567A").withDate("01/02/2018")
-            .withApproval("PENDING").build();
+            .withApproval("PENDING").withPriorityLevel(1).build();
     public static final Leave REQUEST_2 = new LeaveBuilder().withNric("S1234597A").withDate("01/10/2018")
-            .withApproval("PENDING").build();
+            .withApproval("PENDING").withPriorityLevel(2).build();
 
     //Manually add
     public static final Leave REQUEST_3 = new LeaveBuilder().withNric("S1234591A").withDate("01/10/2018")
-            .withApproval("PENDING").build();
+            .withApproval("PENDING").withPriorityLevel(3).build();
     public static final Leave REQUEST_4 = new LeaveBuilder().withNric("S1234591Z").withDate("01/10/2018")
-            .withApproval("PENDING").build();
+            .withApproval("PENDING").withPriorityLevel(3).build();
 
 
     private TypicalLeave() {} // prevents instantiation

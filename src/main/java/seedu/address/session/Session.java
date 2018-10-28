@@ -4,6 +4,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.person.Nric;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.password.Password;
+import seedu.address.model.prioritylevel.PriorityLevel;
 import seedu.address.model.prioritylevel.PriorityLevelEnum;
 
 /**
@@ -33,6 +34,11 @@ public interface Session {
      * Returns the {@code Person} object whose NRIC matches the one that's currently logged in.
      */
     Person getLoggedInPersonDetails() throws CommandException;
+
+    /**
+     * Returns the {@code Priority} object whose NRIC matches the one that's currently logged in.
+     */
+    PriorityLevel getLoggedInPriorityLevel() throws CommandException;
 
     //================================== PRIORITY LEVEL CONCERNS ==================================================
     /**

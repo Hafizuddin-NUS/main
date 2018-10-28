@@ -30,6 +30,7 @@ import seedu.address.session.SessionManager;
 import seedu.address.testutil.LeaveBuilder;
 import systemtests.SessionHelper;
 
+//@@author Hafizuddin-NUS
 public class AddLeaveCommandTest {
 
     private static final CommandHistory EMPTY_COMMAND_HISTORY = new CommandHistory();
@@ -79,8 +80,8 @@ public class AddLeaveCommandTest {
     }
     @Test
     public void equals() {
-        Leave leave1 = new LeaveBuilder().withNric("S9514222A").withDate("12/03/2018").build();
-        Leave leave2 = new LeaveBuilder().withNric("S9513222E").withDate("12/04/2018").build();
+        Leave leave1 = new LeaveBuilder().withNric("S9514222A").withDate("12/03/2018").withPriorityLevel(3).build();
+        Leave leave2 = new LeaveBuilder().withNric("S9513222E").withDate("12/04/2018").withPriorityLevel(3).build();
         AddLeaveCommand addLeaveCommand1 = new AddLeaveCommand(leave1);
         AddLeaveCommand addLeaveCommand2 = new AddLeaveCommand(leave2);
 
@@ -164,6 +165,11 @@ public class AddLeaveCommandTest {
 
         @Override
         public void updatePerson(Person target, Person editedPerson) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void updateLeave(Leave target, Leave editedLeave) {
             throw new AssertionError("This method should not be called.");
         }
 
