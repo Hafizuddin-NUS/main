@@ -9,17 +9,20 @@ import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
 import static seedu.address.testutil.TypicalLeave.getTypicalLeaveList;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.CommandHistory;
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.leave.Leave;
 import seedu.address.model.prioritylevel.PriorityLevelEnum;
+import seedu.address.session.SessionManager;
 import systemtests.SessionHelper;
 
 //@@author Hafizuddin-NUS
@@ -118,5 +121,22 @@ public class DeleteLeaveCommandTest {
         model.updateFilteredLeaveList(p -> false);
 
         assertTrue(model.getFilteredLeaveList().isEmpty());
+    }
+
+    /**
+     * Logs out of the application after each test
+     */
+    @After
+    public void tearDown() throws CommandException {
+        try {
+            new LogoutCommand().execute(model, commandHistory);
+        } catch (CommandException ce) {
+            //Ignores the CommandException if user is not logged in in the first place.
+            if (!ce.getMessage().equals(LogoutCommand.NOT_LOGGED_IN)) {
+                throw new CommandException(ce.getMessage());
+            }
+        } finally {
+            SessionManager.getInstance(model).destroy();
+        }
     }
 }
