@@ -1301,7 +1301,8 @@ Use case ends.
 *Extensions*
 
 * 2a. Leave application under the NRIC given does not exist
-** 2a1. "0 leaves listed." Error shown by AddressBook. +
+** 2a1. AddressBook shows an error message.
++
 User case ends.
 
 [discrete]
@@ -1316,11 +1317,13 @@ Use case ends.
 *Extensions*
 
 * 2a. User not logged in
-** 2a1. AddressBook shows an error message. +
+** 2a1. AddressBook shows an error message.
++
 User case ends.
 
 * 2b. Invalid index given.
-** 2b1. AddressBook shows an error message. +
+** 2b1. AddressBook shows an error message.
++
 Use case resumes at step 1.
 
 * 2c. Not authorized to delete other user's leave application due to insufficient priority level.
@@ -1345,7 +1348,8 @@ Use case ends.
 Use case ends.
 
 * 2b. Invalid index given.
-** 2b1. AddressBook shows an error message. +
+** 2b1. AddressBook shows an error message.
++
 Use case resumes to step 1.
 
 * 2c. Not authorized to approve/reject your own leave application.
