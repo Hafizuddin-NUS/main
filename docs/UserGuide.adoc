@@ -337,6 +337,7 @@ Delete the specified leave from leave list.
 * User can only delete leave application he/she requested.
 * To delete other user's application, requires higher privilege to perform.
 Example, MANAGER can delete BASIC user's leave application.
+* ADMINISTRATOR can delete any leave application.
 ====
 
 Format: `deleteleave INDEX` +
@@ -368,6 +369,7 @@ Approve the specified leave application from leave list.
 ====
 * Only higher priority users can approve leave application.
 Example, MANAGER can approve BASIC user's leave application.
+* ADMINISTRATOR cannot approve his own leave application, only another ADMINISTRATOR can approve his leave application.
 ====
 
 Format: `approve INDEX`
@@ -395,6 +397,7 @@ Reject the specified leave application from leave list.
 ====
 * Only higher priority users can reject leave application.
 Example, MANAGER can reject BASIC user's leave application.
+* ADMINISTRATOR cannot reject his own leave application, only another ADMINISTRATOR can reject his leave application.
 ====
 
 Format: `reject INDEX`
@@ -615,6 +618,7 @@ Format: `help`
 ====
 
 User Guide will open in a separate window shown below:
+
 image:UserGuide.png[]
 
 ==== Selecting a person : `select`
@@ -700,8 +704,8 @@ image::checkedOut.PNG[width="700"]
 ====
 This operation requires user to be logged in with a privilege level of `I.T. Unit` to perform.
 ====
-Resets the application into a default slate, by deleting data/AddressBook.xml. The application will also close upon
-deleting data/AddressBook.xml.
+Resets the application into a default slate, by deleting data/AddressBook.xml and data/leave.xml. The application will also close upon
+deleting the two files.
 
 Refer to the <<defaultcontacts, List of Default Contacts>> upon app reset on the contacts available.
 
