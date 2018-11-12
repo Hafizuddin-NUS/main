@@ -1603,7 +1603,7 @@ Expected: No employee at index 0. Error details is shown in the status message.
    Expected: List all leave application under the user with NRIC, S8570520Q.
 .. Test case: `filterleave S1212121A` , `filterleave S1313131A` +
    Expected: 0 leaves listed. This is due to no such leave application under S1212121A and S1313131A.
-.. If NRIC is not valid such as: 'filterleave S8570520', 'filterleave 8570520Q', 'filterleave 8570520' +
+.. If NRIC is not valid such as: `filterleave S8570520`, `filterleave 8570520Q`, `filterleave 8570520` +
    Expected: 0 leaves listed. This is due to invalid NRIC.
 
 ==== Delete leave application
